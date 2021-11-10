@@ -1,0 +1,62 @@
+<template>
+  <v-card-text>
+    <input type="text" v-model="studentName" placeholder="Nom de l'élève">
+    <select v-model="selected">
+      <option v-for="option in options" v-bind:value="option.value">
+        {{ option.text }}
+      </option>
+    </select>
+    <button @click="showComment">GO !</button>
+    <hr class="my-3">
+    <p>Prévisualisation :</p>
+    <p>{{comment}}</p>
+    <input id="toCopy" type="hidden" :value="comment">
+    <button @click="copyToClipboard">Copier</button>
+    <button @click="showComment">Regénérer</button>
+  </v-card-text>
+</template>
+
+<script>
+import * as DataService from "../services/dataService";
+
+export default {
+  name: "CommentGenerator",
+  data() {
+    return {
+      studentName: "",
+      options: [
+        { text: 'Evaluation positive', value: 2 },
+        { text: 'Evaluation neutre', value: 1 },
+        { text: 'Evaluation négative', value: 0 }
+      ],
+      selected: 2,
+      comment: "",
+    }
+  },
+  methods: {
+    showComment() {
+      this.comment = DataService.getData(this.selected, this.studentName);
+    },
+    copyToClipboard() {
+      let toCopy = document.querySelector('#toCopy');
+      toCopy.setAttribute('type', 'text')
+      toCopy.select();
+      document.execCommand('copy');
+      toCopy.setAttribute('type', 'hidden')
+      window.getSelection().removeAllRanges()
+    }
+  }
+}
+</script>
+
+<style scoped lang="scss">
+  input, select, button {
+    background: burlywood;
+    color: black;
+    padding: 5px 15px;
+  }
+
+  select {
+    cursor: pointer;
+  }
+</style>
