@@ -39,14 +39,6 @@ export default {
   methods: {
     showComment() {
       this.comment = DataService.getData(this.selected, this.studentName);
-    },
-    copyToClipboard() {
-      let toCopy = document.querySelector('#toCopy');
-      toCopy.setAttribute('type', 'text')
-      toCopy.select();
-      document.execCommand('copy');
-      toCopy.setAttribute('type', 'hidden')
-      window.getSelection().removeAllRanges()
     }
   }
 }
