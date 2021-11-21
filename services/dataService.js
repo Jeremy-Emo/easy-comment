@@ -8,7 +8,7 @@ const comments = [
     "Qui êtes-vous ?",
     "Ne préfère pas se prononcer.",
     "Aucun effort !",
-    "%name% ne peut probablement pas faire pire..."
+    "%name% ne peut probablement pas faire pire...",
   ],
   [
     "Trimestre classique pour %name%",
@@ -19,12 +19,13 @@ const comments = [
     "%name% a des capacités, il ne manque que la motivation pour les utiliser.",
     "%name% a des difficultés, mais fait des efforts remarqués pour compenser.",
     "Je ne pense pas qu'il y ait de bonnes ou de mauvaises situations.",
+    "Peut mieux faire",
   ],
   [
     "Bon trimestre pour %name%",
     "Excellent trimestre pour %name%",
     "%name% est arrogant, mais peut se le permettre.",
-    "Un bon travail ce trimestre pour %name%. Continuez, vous êtes sur la bonne voie !"
+    "Un bon travail ce trimestre pour %name%. Continuez, vous êtes sur la bonne voie !",
   ]
 ]
 

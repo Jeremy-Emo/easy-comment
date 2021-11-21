@@ -10,17 +10,20 @@
     <hr class="my-3">
     <p>Prévisualisation :</p>
     <p>{{comment}}</p>
-    <input id="toCopy" type="hidden" :value="comment">
-    <button @click="copyToClipboard">Copier</button>
+    <copy-button :comment="comment"></copy-button>
     <button @click="showComment">Regénérer</button>
   </v-card-text>
 </template>
 
 <script>
 import * as DataService from "../services/dataService";
+import CopyButton from "./CopyButton";
 
 export default {
   name: "CommentGenerator",
+  components: {
+    CopyButton
+  },
   data() {
     return {
       studentName: "",
@@ -54,6 +57,10 @@ export default {
     background: burlywood;
     color: black;
     padding: 5px 15px;
+  }
+
+  button:hover {
+    background: chocolate;
   }
 
   select {
